@@ -10,7 +10,6 @@ const nc = await connect({ servers: "192.168.0.132:4222",authenticator:nkeyAuthe
 const subChat = nc.subscribe("web.im.chat.2");
 (async () => {
   for await (const m of subChat) {
-    console.log(`[${sub.getProcessed()}]: ${sc.decode(m.data)}`);
     nc.publish("web.im.read.1", { user_id: 2 });
   }
   console.log("subscription closed");
