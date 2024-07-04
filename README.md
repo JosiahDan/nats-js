@@ -1,15 +1,25 @@
 # nats-js
 ## Nats Usage
 ### IM Systeam Logic
-![image](/Untitled%20Workspace.png)
-1. subscribe chat message   
+![image](./Untitled%20Workspace.png)
+1. subscribe chat message  
+* subject: `web.im.msg.SELF_USER_ID`  
+订阅聊天信息(websocket长连接)，用于接收聊天信息。  
+2. subscribe read signal  
+* subject: `web.im.read.SELF_USER_ID`  
+订阅已读信号(websocket长连接)，用于接收已读信号。  
+3. publish chat message  
+* subject: `web.im.msg.TARGET_USER_ID`  
+发送聊天内容。  
+4. publish read signal  
+* subject: `web.im.msg.TARGET_USER_ID`  
+发送已读信号。  
 ### Connect Nats server
 Use JavaScript to connect nats server.  
 JavaScriptでNATSサーバーに接続します。  
-JavaScript连接Nats服务器。
+JavaScript连接Nats服务器。  
 ```javascript
 import { connect,StringCodec,nkeyAuthenticator} from "nats";
-
 // test nkey
 // テストnkey
 // 测试nkey
