@@ -3,17 +3,49 @@
 ### IM Systeam Logic
 ![image](./Untitled%20Workspace.png)
 1. subscribe chat message  
-* subject: `web.im.msg.SELF_USER_ID`  
 订阅聊天信息(websocket长连接)，用于接收聊天信息。  
+* subject: `web.im.msg.SELF_USER_ID`  
+* Payload例:  
+```json
+{
+  "from_user_id": 123,
+  "to_user_id": 321,
+  "msg":"hello"
+}
+```
 2. subscribe read signal  
+Subscribe read signal (websocket long connection)。When recived the signal,need to change the sender's message to "read"。  
+信号を受信しましたら、発信者のメッセージの状態が「既読」に変わります。  
+订阅已读信号(websocket长连接)，用于接收已读信号。当接收到该信号时，需要将发信者的消息转变为"已读"。  
 * subject: `web.im.read.SELF_USER_ID`  
-订阅已读信号(websocket长连接)，用于接收已读信号。  
+* Payload例:  
+```json
+{
+  "from_user_id":123,
+  "to_user_id":321
+}
+```
 3. publish chat message  
-* subject: `web.im.msg.TARGET_USER_ID`  
 发送聊天内容。  
-4. publish read signal  
 * subject: `web.im.msg.TARGET_USER_ID`  
+* Payload例:  
+```json
+{
+  "from_user_id": 123,
+  "to_user_id": 321,
+  "msg":"hello"
+}
+```
+4. publish read signal  
 发送已读信号。  
+* subject: `web.im.msg.TARGET_USER_ID`  
+* Payload例:  
+```json
+{
+  "from_user_id":123,
+  "to_user_id":321
+}
+```
 ### Connect Nats server
 Use JavaScript to connect nats server.  
 JavaScriptでNATSサーバーに接続します。  
