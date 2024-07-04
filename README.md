@@ -15,7 +15,7 @@
 ```
 2. subscribe read signal  
 Subscribe read signal (websocket long connection)。When recived the signal,need to change the sender's message to "read"。  
-信号を受信しましたら、発信者のメッセージの状態が「既読」に変わります。  
+信号を受信しましたら、発信者のメッセージの状態が「既読」に変わります。   
 订阅已读信号(websocket长连接)，用于接收已读信号。当接收到该信号时，需要将发信者的消息转变为"已读"。  
 * subject: `web.im.read.SELF_USER_ID`  
 * Payload例:  
