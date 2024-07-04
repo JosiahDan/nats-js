@@ -51,7 +51,11 @@ Use JavaScript to connect nats server.
 JavaScriptでNATSサーバーに接続します。  
 JavaScript连接Nats服务器。  
 ```javascript
-import { connect,StringCodec,nkeyAuthenticator} from "nats";
+// shim the websocket library
+globalThis.WebSocket = require("websocket").w3cwebsocket;
+const { connect } = require("nats.ws");
+
+// write some code that runs on the server
 // test nkey
 // テストnkey
 // 测试nkey
