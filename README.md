@@ -72,7 +72,7 @@ Subscribe read signal (websocket long connection)。When recived the signal,need
 ```
 5. publish read signal  
 发送已读信号。  
-* subject: `web.im.msg.TARGET_USER_ID`  
+* subject: `web.im.read.TARGET_USER_ID`  
 * Payload例:  
 ```json
 {
